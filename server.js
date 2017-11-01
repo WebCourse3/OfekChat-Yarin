@@ -5,15 +5,17 @@ var io = require('socket.io')(http);
 
 app.use(express.static('public'))
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
 });
 
-io.on('connection', function() {
-    console.log('a user connected');
+io.on('connection', function (socket) {
+    socket.on('chat message', function (msg) {
+        console.log(msg.name + ':', msg.message);
+        socket.broadcast.emit('chat message', msg);
+    });
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(3000, function () {
+    console.log('listening on *:3000');
 });
-    

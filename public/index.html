@@ -8,22 +8,33 @@
     <title>OfekChat</title>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./chat.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 
 <body>
-    <ul>
-        <li>
-            <label>Name:
-                <input type="text" name="name" id="name">
-            </label>
-        </li>
-        <li>
-            <label>Message:
-                <textarea name="message" id="message" rows="2"></textarea>
-            </label>
-        </li>
-    </ul>
+    <form action="">
+        <ul>
+            <li>
+                <label>Name:
+                    <input type="text" name="name" id="name">
+                </label>
+            </li>
+            <li>
+                <label>Message:
+                    <input type="text" name="message" id="message">
+                </label>
+            </li>
+            <li>
+                <button>Send</button>
+            </li>
+        </ul>
+    </form>
+    <hr>
+    <section id="messages">
+        <ul id="messages-list"></ul>
+    </section>
+
+    <script src="chat.js"></script>
 </body>
 
 </html>
